@@ -19,7 +19,7 @@ public class SeleniumTestExample {
     @Test
     public void seleniumTest() {
         driver.get("https://www.tut.by/");
-        Assert.assertTrue(driver.getTitle().contains("TUT.BY"));
+        Assert.assertTrue(driver.getTitle().contains("freedom"), String.format("Title is '%s'", driver.getTitle()));
     }
 
     @AfterMethod
