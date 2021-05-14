@@ -1,0 +1,25 @@
+version: '3'
+services:
+  selenoid:
+    network_mode: bridge
+    image: aerokube/selenoid
+    volumes:
+      - "C:\\Users\\Ihar_Haudur\\IdeaProjects\\testExampleCode\\src\\test\\resources\\docker:/etc/selenoid"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "C:\\Users\\Ihar_Haudur\\IdeaProjects\\testExampleCode\\src\\test\\resources\\docker\\video:/opt/selenoid/video"
+      - "C:\\Users\\Ihar_Haudur\\IdeaProjects\\testExampleCode\\src\\test\\resources\\docker\\logs:/opt/selenoid/logs"
+    environment:
+      - OVERRIDE_VIDEO_OUTPUT_DIR=/docker/video
+      - TZ=Europe/Amsterdam
+    command: ["-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video"]
+    ports:
+      - "4444:4444"
+
+  selenoid-ui:
+    image: "aerokube/selenoid-ui"
+    network_mode: bridge
+    links:
+      - selenoid
+    ports:
+      - "8081:8081"
+    command: ["--selenoid-uri", "http://selenoid:4444"]

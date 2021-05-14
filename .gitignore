@@ -2,3 +2,5 @@
 target
 *.log
 *.iml
+src/test/resources/docker/logs
+src/test/resources/docker/video
