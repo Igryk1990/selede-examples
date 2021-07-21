@@ -4,10 +4,10 @@ services:
     network_mode: bridge
     image: aerokube/selenoid
     volumes:
-      - "C:\\Users\\Ihar_Haudur\\IdeaProjects\\testExampleCode\\src\\test\\resources\\docker:/etc/selenoid"
+      - "C:\\Users\\Ihar_Haudur\\IdeaProjects\\selede-examples\\src\\test\\resources\\docker:/etc/selenoid"
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - "C:\\Users\\Ihar_Haudur\\IdeaProjects\\testExampleCode\\src\\test\\resources\\docker\\video:/opt/selenoid/video"
-      - "C:\\Users\\Ihar_Haudur\\IdeaProjects\\testExampleCode\\src\\test\\resources\\docker\\logs:/opt/selenoid/logs"
+      - "C:\\Users\\Ihar_Haudur\\IdeaProjects\\selede-examples\\src\\test\\resources\\docker\\video:/opt/selenoid/video"
+      - "C:\\Users\\Ihar_Haudur\\IdeaProjects\\selede-examples\\src\\test\\resources\\docker\\logs:/opt/selenoid/logs"
     environment:
       - OVERRIDE_VIDEO_OUTPUT_DIR=/docker/video
       - TZ=Europe/Amsterdam
